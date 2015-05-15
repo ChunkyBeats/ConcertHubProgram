@@ -7,12 +7,12 @@ class Venue < ActiveRecord::Base
   before_update(:formatting)
 
   private
-  def formatting
-    # self.name=(name.capitalize!)
-    temp=self.name.split.each do |word|
-      word.capitalize!
+    def formatting
+      # self.name=(name.capitalize!)
+      temp=self.name.split.each do |word|
+        word.capitalize!
+      end
+      self.name = temp.join(" ")
     end
-    self.name = temp.join(" ")
-  end
 
 end
