@@ -1,0 +1,25 @@
+<h1>Welcome to ConcertHub!</h1>
+
+<% if @bands.any? %>
+  <h3>Select a Band:</h3>
+  <ul>
+    <% @bands.each do |b| %>
+      <li><a href="/band/<%= b.id %>"><%= b.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No bands exist in the database. Would you like to add <a href="/band_form">one?</a></p>
+<% end %>
+<br>
+
+<% if @venues.any? %>
+  <h3>Select a venue:</h3>
+  <ul>
+    <% @venues.each do |v| %>
+      <li><a href="/venue/<%= v.id %>"><%= v.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p> No venues exist in the database. Would you like to add <a href="/venue_form">one?</a></p>
+<% end %>
+<br>

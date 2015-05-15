@@ -1,0 +1,17 @@
+<h3>Add a show for <%= @band.name %></h3>
+
+
+<form action="/band/<%= @band.id %>/add_venue" method="post">
+  <input name="_method" type="hidden" value="post">
+  <input name="id" type="hidden" value="<%= @band.id %>">
+  <div class="form-group">
+    <select name="add_venue">
+      <% @venues.-(@band.venues).each do |venue| %>
+        <option name="add_venue" value="<%= venue.id %>"><%= venue.name %></option>
+      <% end %>
+    </select>
+    <button type="submit" style="margin:10px;" class="btn btn-success">Add Concert to Band!</button>
+  </div>
+</form>
+
+<br>

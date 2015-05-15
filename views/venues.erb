@@ -1,0 +1,13 @@
+<h3>These are the venues you are following:</h3>
+
+<% if @venues.any? %>
+<h3>Select a Venue:</h3>
+<ul>
+  <% @venues.each do |v| %>
+  <li><a href="/venue/<%= v.id %>"><%= v.name %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>Clearly you're antisocial. Get off your butt and go see some live music.</a></p>
+<% end %>
+<br>

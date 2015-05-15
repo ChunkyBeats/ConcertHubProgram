@@ -1,0 +1,15 @@
+<h3>The following bands have played at <%= @venue.name %>:</h3>
+<br>
+<% if @venue.bands.any? %>
+<ul>
+  <% @venue.bands.each do |vb| %>
+  <li><a href="/band/<%= vb.id %>"><%= vb.name %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p><%= @venue.name %> hasn't hosted any shows. This place is a dump.</p>
+<% end %>
+<br>
+
+
+<h5>Update <%= @venue.name %>'s <a href="/venue/<%= @venue.id %>/update">information?</h5>

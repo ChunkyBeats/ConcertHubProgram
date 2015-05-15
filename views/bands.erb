@@ -1,0 +1,13 @@
+<h3>These are the bands you are following:</h3>
+
+<% if @bands.any? %>
+<h3>Select a Band:</h3>
+<ul>
+  <% @bands.each do |b| %>
+  <li><a href="/band/<%= b.id %>"><%= b.name %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>You are not following any bands currently. DO YOU HATE MUSIC?? ADD A BAND ALREADY!!</a></p>
+<% end %>
+<br>

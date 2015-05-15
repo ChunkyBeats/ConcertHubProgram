@@ -1,0 +1,29 @@
+<h3>Update <%= @band.name %>'s information</h3>
+
+<form action="/band/<%= @band.id %>/update_name" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <div class="form-group">
+    <h5>Update Band Name:</h5>
+    <input name="band_name" type="text">
+    <button type="submit" class="btn btn-info">Update Name</button>
+  </div>
+
+  <br><p>-- OR --</p><br>
+
+  <div class="form-group">
+    <h5>Remove a Concert</h5>
+  <select name="concert_delete">
+    <option></option>
+    <% @band.venues.each do |v| %>
+      <option name="concert_delete" value="<%= v.id %>"><%= v.name %></option>
+    <% end %>
+  </select>
+</form>
+
+<br><p>-- OR DELETE THIS BAND --</p><br>
+
+<form action="/band/<%= @band.id %>/delete" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <input name="id" type="hidden" value="<%= @band.id %>">
+  <button type="submit" class="btn btn-danger">Delete <%= @band.name %></button>
+</form>

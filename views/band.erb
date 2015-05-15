@@ -1,0 +1,16 @@
+<h3><%= @band.name %> has played at the following venues:</h3>
+<br>
+<% if @band.venues.any? %>
+  <ul>
+    <% @band.venues.each do |bv| %>
+      <li><a href="/venue/<%= bv.id %>"><%= bv.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p><%= @band.name %> hasn't played any shows.  They must suck.</p>
+<% end %>
+<br>
+
+<h5>Add a <a href="/band/<%= @band.id %>/add_venue">show</a></h5>
+
+<h5>Update <%= @band.name %>'s <a href="/band/<%= @band.id %>/update">information?</a></h5>
