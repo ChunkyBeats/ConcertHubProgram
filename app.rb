@@ -58,6 +58,7 @@ end
 
 get('/band/:id/update') do
   @band = Band.find(params.fetch("id").to_i)
+  @shows_for_band = @band.venues
   erb(:update_band)
 end
 
@@ -68,9 +69,19 @@ delete('/band/:id/delete') do
   erb(:bands)
 end
 
-# patch('band/:id/update_name') do
-#
-#
+patch('/band/:id/update_name') do
+  @band = Band.find(params.fetch("id").to_i)
+  @band.update(name: params.fetch("band_name"))
+  erb(:band)
+end
+
+patch('/band/:id/remove_concert') do
+  @band = Band.find(params.fetch("id").to_i)
+  @band.venues.destroy(Venue.find(params.fetch("concert_delete").to_i))
+  erb(:band)
+end
+
+
 
 
 

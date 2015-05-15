@@ -7,17 +7,21 @@
     <input name="band_name" type="text">
     <button type="submit" class="btn btn-info">Update Name</button>
   </div>
+</form>
 
   <br><p>-- OR --</p><br>
 
+<form action="/band/<%= @band.id %>/remove_concert" method="post">
+  <input name="_method" type="hidden" value="patch">
   <div class="form-group">
     <h5>Remove a Concert</h5>
   <select name="concert_delete">
     <option></option>
-    <% @band.venues.each do |v| %>
+    <% @shows_for_band.each do |v| %>
       <option name="concert_delete" value="<%= v.id %>"><%= v.name %></option>
     <% end %>
   </select>
+  <button type="submit" class="btn btn-warning">Delete Show</button>
 </form>
 
 <br><p>-- OR DELETE THIS BAND --</p><br>
