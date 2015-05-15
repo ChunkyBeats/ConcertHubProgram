@@ -1,9 +1,11 @@
 class Venue < ActiveRecord::Base
   has_and_belongs_to_many(:bands)
   validates(:name, {:presence => true})
+  validates :name, uniqueness: true
+
   before_save(:formatting)
   before_update(:formatting)
-  
+
   private
   def formatting
     # self.name=(name.capitalize!)
