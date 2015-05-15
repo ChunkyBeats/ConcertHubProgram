@@ -7,7 +7,7 @@ describe Band do
   end
 
   it('formats the input name') do
-    band = Band.create(name: "zeds ded")
-    expect(band.name).to(eq("Zeds Ded"))
+    band = Band.create(name: "zed's ded")
+    expect(band.name).to(eq("Zed's Ded"))
   end
 end
